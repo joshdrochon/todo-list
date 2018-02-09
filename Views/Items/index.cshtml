@@ -6,6 +6,7 @@
     display: inline;
     padding: 10px;
     font-family: helvetica;
+    border-radius: 10px;
   }
 
 </style>
@@ -15,12 +16,12 @@
 
 <h1>To Do List</h1>
 <ul>
-  @foreach(var item in Model)
+  @foreach (var item in Model)
   {
-    <li>@item.GetDescription()</li>
+    <li><a href='/items/@item.GetId()'>@item.GetDescription()</a></li>
   }
 </ul>
-<p><a href="/items/new">Add another item</a></p>
+<p><a href="/items/new">Add an item</a></p>
 <form action="/items/delete" method="post">
   <button type="submit" name="button">Clear All Items</button>
 </form>
